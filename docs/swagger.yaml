@@ -1,0 +1,104 @@
+basePath: /
+definitions:
+  models.Specification:
+    properties:
+      access_token:
+        type: string
+      expires_at:
+        type: string
+      refresh_token:
+        type: string
+    type: object
+host: localhost:8005
+info:
+  contact:
+    email: eti@cisco.io
+    name: API Support
+  description: This is a Kosha REST serice for exposing many spotify functionality
+    as REST APIs with better consistency, observability etc
+  termsOfService: http://swagger.io/terms/
+  title: Spotify Connector API
+  version: "2.0"
+paths:
+  /api/v1/profile/{profile}:
+    get:
+      consumes:
+      - application/json
+      description: Get Spotify profile information for the user
+      parameters:
+      - description: Enter user id
+        in: path
+        name: profile
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: Get users profile information
+      tags:
+      - profile
+  /api/v1/search/{catalog}:
+    get:
+      consumes:
+      - application/json
+      description: Search spotify catalog
+      parameters:
+      - description: Enter catalog e.g., albums, tracks, playlists, artists
+        in: path
+        name: catalog
+        required: true
+        type: string
+      - description: Search term
+        in: query
+        name: q
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Scan artists, albums, playlists and tracks catalog for the provided
+        search term
+      tags:
+      - catalog
+  /api/v1/specification/list:
+    get:
+      consumes:
+      - application/json
+      description: Get all environment variables that need to be supplied for the
+        spotify connector to work
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+      summary: Get details of the connector specification
+      tags:
+      - specification
+  /api/v1/specification/test:
+    post:
+      consumes:
+      - application/json
+      description: Check if the oauth2 credentials are valid
+      parameters:
+      - description: Enter access token, refresh token and token expiry
+        in: body
+        name: text
+        schema:
+          $ref: '#/definitions/models.Specification'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+      summary: Test if oauth2 access token works against the specification
+      tags:
+      - specification
+swagger: "2.0"

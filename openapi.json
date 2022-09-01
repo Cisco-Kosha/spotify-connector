@@ -1,0 +1,152 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": {
+      "email": "eti@cisco.io",
+      "name": "API Support"
+    },
+    "description": "This is a Kosha REST serice for exposing many spotify functionality as REST APIs with better consistency, observability etc",
+    "termsOfService": "http://swagger.io/terms/",
+    "title": "Spotify Connector API",
+    "version": "2.0"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/api/v1/profile/{profile}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Enter user id",
+            "in": "path",
+            "name": "profile",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": [
+          "profile"
+        ],
+        "description": "Get Spotify profile information for the user",
+        "summary": "Get users profile information"
+      }
+    },
+    "/api/v1/search/{catalog}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Enter catalog e.g., albums, tracks, playlists, artists",
+            "in": "path",
+            "name": "catalog",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "catalog"
+        ],
+        "description": "Search spotify catalog",
+        "summary": "Scan artists, albums, playlists and tracks catalog for the provided search term"
+      }
+    },
+    "/api/v1/specification/list": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "specification"
+        ],
+        "description": "Get all environment variables that need to be supplied for the spotify connector to work",
+        "summary": "Get details of the connector specification"
+      }
+    },
+    "/api/v1/specification/test": {
+      "post": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "specification"
+        ],
+        "description": "Check if the oauth2 credentials are valid",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/models.Specification"
+              }
+            }
+          },
+          "description": "Enter access token, refresh token and token expiry"
+        },
+        "summary": "Test if oauth2 access token works against the specification"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "models.Specification": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "expires_at": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}
