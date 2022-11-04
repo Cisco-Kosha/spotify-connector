@@ -1,4 +1,4 @@
-name: ${{ github.event.repository.name }}
+name: spotify-connector-ci
 
 on:
   push:
