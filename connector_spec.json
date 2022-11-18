@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "fields": [
+    {
+      "field": "ACCESS_TOKEN",
+      "displayName": "OAuth2 Access Token",
+      "type": "String",
+      "minLength": 50,
+      "maxLength": 250,
+      "required": false,
+      "description": "Spotify OAuth2 access token",
+      "example": "BQBczUJ3DNEHVWy6E9rf5S6m_KhGfQBryerT-PCOEkLiYrBPF5MPCIPyHgPqKpl-cZEyyJTdefN-5cHjqdPR1UBRHsfclCPIVins9igHX0wvM2pt22HFGPIh7nYd0mLXcQkfQAFpO6RepSZ0pP8xVOfsBYwr1mY6YT4JxC4xD_Rgo0EIXp63gLOEOji76eZgaX1_mK15",
+      "helpSection": "Spotify OAuth2 access token"
+    },
+    {
+      "field": "REFRESH_TOKEN",
+      "displayName": "OAuth2 refresh token",
+      "type": "String",
+      "minLength": 10,
+      "maxLength": 180,
+      "required": false,
+      "description": "Spotify OAuth2 refresh token",
+      "example": "QB4_wcm5EqOkRLj3KADJxl_IkHDu3tc-P7WmUedhROMtVCRJsUjvfSmQqfuj1c2GvvR4ZnrlsXdHjGlu9S71a0sqonDUW9eenLvIKgfuFzX_9AXBmdUxEoDwzbZSnta0Bo",
+      "helpSection": "Spotify OAuth2 refresh token"
+    },
+    {
+      "field": "EXPIRES_AT",
+      "displayName": "OAuth2 Expiry Time",
+      "type": "String",
+      "minLength": 5,
+      "maxLength": 20,
+      "required": false,
+      "description": "Spotify OAuth2 token refresh time",
+      "example": "2022-11-18T15:08:55.642141+05:30",
+      "helpSection": "Spotify OAuth2 token refresh time"
+    }
+  ]
+}
