@@ -8,7 +8,7 @@
       "type": "String",
       "minLength": 50,
       "maxLength": 250,
-      "required": false,
+      "required": true,
       "description": "Spotify OAuth2 access token",
       "example": "BQBczUJ3DNEHVWy6E9rf5S6m_KhGfQBryerT-PCOEkLiYrBPF5MPCIPyHgPqKpl-cZEyyJTdefN-5cHjqdPR1UBRHsfclCPIVins9igHX0wvM2pt22HFGPIh7nYd0mLXcQkfQAFpO6RepSZ0pP8xVOfsBYwr1mY6YT4JxC4xD_Rgo0EIXp63gLOEOji76eZgaX1_mK15",
       "helpSection": "Spotify OAuth2 access token"
@@ -29,11 +29,33 @@
       "displayName": "OAuth2 Expiry Time",
       "type": "String",
       "minLength": 5,
-      "maxLength": 20,
+      "maxLength": 30,
       "required": false,
       "description": "Spotify OAuth2 token refresh time",
       "example": "2022-11-18T15:08:55.642141+05:30",
       "helpSection": "Spotify OAuth2 token refresh time"
+    },
+    {
+      "field": "provider",
+      "displayName": "OAuth2 Provider Name",
+      "type": "String",
+      "minLength": 1,
+      "maxLength": 60,
+      "required": true,
+      "description": "Spotify OAuth2 provider name",
+      "example": "spotify",
+      "helpSection": "Spotify OAuth2 provider name"
+    },
+    {
+      "field": "email",
+      "displayName": "Email fetched from OAuth2 auth flow",
+      "type": "String",
+      "minLength": 1,
+      "maxLength": 60,
+      "required": true,
+      "description": "Spotify email fetched from OAuth2 auth flow",
+      "example": "bob@email.com",
+      "helpSection": "Spotify email fetched from OAuth2 auth flow"
     }
   ]
 }
