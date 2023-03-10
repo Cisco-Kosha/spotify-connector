@@ -56,6 +56,30 @@
       "description": "Spotify email fetched from OAuth2 auth flow",
       "example": "bob@email.com",
       "helpSection": "Spotify email fetched from OAuth2 auth flow"
+    },
+    {
+      "field": "AUTH_TYPE",
+      "displayName": "Spotify Auth Type",
+      "type": "String",
+      "minLength": 4,
+      "maxLength": 60,
+      "required": true,
+      "description": "Spotify API Auth Type",
+      "default": "OAUTH2",
+      "example": "OAUTH2",
+      "helpSection": ""
+    },
+    {
+      "field": "SERVER_URL",
+      "displayName": "Spotify Server URL",
+      "type": "String",
+      "minLength": 4,
+      "maxLength": 60,
+      "required": true,
+      "description": "Spotify API Server URL",
+      "default": "https://api.spotify.com/v1",
+      "example": "https://api.spotify.com/v1",
+      "helpSection": "Use the default value https://api.spotify.com"
     }
   ]
 }
