@@ -21,6 +21,11 @@ import (
 // @Router /api/v1/search/{catalog} [get]
 func (a *App) searchCatalog(w http.ResponseWriter, r *http.Request) {
 
+	//Allow CORS here By * or specific origin
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "*")
+
 	vars := mux.Vars(r)
 	catalog := vars["catalog"]
 

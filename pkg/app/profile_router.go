@@ -2,7 +2,6 @@ package app
 
 import (
 	"context"
-	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/zmb3/spotify/v2"
 	"net/http"
@@ -18,6 +17,11 @@ import (
 // @Router /api/v1/profile/{profile} [get]
 func (a *App) profile(w http.ResponseWriter, r *http.Request) {
 
+	//Allow CORS here By * or specific origin
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "*")
+
 	vars := mux.Vars(r)
 	profile := vars["profile"]
 
@@ -27,12 +31,6 @@ func (a *App) profile(w http.ResponseWriter, r *http.Request) {
 		respondWithError(w, http.StatusBadRequest, err.Error())
 		return
 	}
-
-	fmt.Println("User ID:", user.ID)
-	fmt.Println("Display name:", user.DisplayName)
-	fmt.Println("Spotify URI:", string(user.URI))
-	fmt.Println("Endpoint:", user.Endpoint)
-	fmt.Println("Followers:", user.Followers.Count)
 
 	respondWithJSON(w, http.StatusOK, user)
 
