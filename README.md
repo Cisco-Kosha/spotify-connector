@@ -52,3 +52,8 @@ Kosha uses OAuth 2.0 to connect to Spotify. If you already have an application r
 
 If you don’t want to use those credentials when provisioning the Spotify connector, Kosha provides bootstrap credentials. After you sign in to your Spotify app, Spotify gives Kosha an access token and your connector is provisioned. Kosha automatically refreshes your access token before it expires to ensure there’s no disruption in use.
 
+## Kosha Connector Open Source Development
+
+All connectors Kosha shares on the marketplace are open source. We believe in fostering collaboration and open development. Everyone is welcome to contribute their ideas, improvements, and feedback for any Kosha connector. We encourage community engagement and appreciate any contributions that align with our goals of an open and collaborative API management platform.
+
+Refer to the contribution guidelines for details.
