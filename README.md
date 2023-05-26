@@ -48,5 +48,7 @@ Use the playlists API to:
 
 ## Authentication
 
-Kosha uses OAuth 2.0 to connect to Spotify. Pass your `client_id` and `client_secret` when provisioning the connector.
+Kosha uses OAuth 2.0 to connect to Spotify. If you already have an application registered with Spotify, you can use your `client_id` and `client_secret` when provisioning the connector.
+
+If you don’t want to use those credentials when provisioning the Spotify connector, Kosha provides bootstrap credentials. After you sign in to your Spotify app, Spotify gives Kosha an access token and your connector is provisioned. Kosha automatically refreshes your access token before it expires to ensure there’s no disruption in use.
 
